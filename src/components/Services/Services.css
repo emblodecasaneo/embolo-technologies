@@ -1,0 +1,141 @@
+.services-page {
+  padding: 100px 0 4rem;
+  width: 100%;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  min-height: 100vh;
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding: 0 2rem;
+}
+
+.services-header h1 {
+  font-size: 3rem;
+  color: #171a20;
+  margin-bottom: 1rem;
+  font-weight: 300;
+  letter-spacing: -1px;
+}
+
+.services-header p {
+  font-size: 1.3rem;
+  color: #495057;
+  font-weight: 300;
+}
+
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.service-detail-card {
+  background: white;
+  padding: 3rem 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-detail-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+.service-detail-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  filter: grayscale(20%);
+}
+
+.service-detail-card h2 {
+  color: #171a20;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: 400;
+}
+
+.service-detail-card p {
+  color: #495057;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.service-features {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.service-features li {
+  padding: 1rem 0;
+  position: relative;
+  padding-left: 2.5rem;
+  color: #495057;
+  font-size: 1rem;
+  border-bottom: 1px solid #f1f3f4;
+  transition: color 0.3s ease;
+}
+
+.service-features li:last-child {
+  border-bottom: none;
+}
+
+.service-features li:hover {
+  color: #171a20;
+}
+
+.service-features li::before {
+  content: "✓";
+  color: #28a745;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+  font-size: 1.2rem;
+  top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .services-page {
+    padding: 100px 1rem 2rem;
+  }
+  
+  .services-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .services-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .service-detail-card {
+    padding: 2.5rem 2rem;
+  }
+
+  .service-icon {
+    font-size: 3rem;
+  }
+} 
