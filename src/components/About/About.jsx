@@ -1,141 +1,144 @@
 import { motion } from 'framer-motion'
 
+const values = [
+  {
+    title: 'Innovation',
+    description: 'Nous testons en continu les meilleures approches pour créer des produits durables.',
+  },
+  {
+    title: 'Excellence',
+    description: 'Nous livrons un travail propre, maintenable et orienté performance.',
+  },
+  {
+    title: 'Transparence',
+    description: 'Vous suivez les décisions et l’avancement en toute clarté.',
+  },
+  {
+    title: 'Partenariat',
+    description: 'Nous nous impliquons comme une extension de votre équipe.',
+  },
+]
+
+const milestones = [
+  { year: '2020', text: 'Lancement de l’agence et premiers projets vitrines.' },
+  { year: '2022', text: 'Extension vers les applications mobiles et les APIs métiers.' },
+  { year: '2024', text: 'Structuration de notre pôle maintenance & accompagnement long terme.' },
+]
+
 const About = () => {
   return (
-    <div className="w-full min-h-screen bg-gray-900">
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-gray-900 via-gray-800 to-primary-900">
-        <div className="max-w-6xl mx-auto px-8">
-          <motion.div 
-            className="text-center text-white"
-            initial={{ opacity: 0, y: 30 }}
+    <div className="w-full bg-white">
+      <section className="pt-28 pb-16 md:pt-32 md:pb-20">
+        <div className="container-page">
+          <motion.div
+            className="text-center max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.65 }}
           >
-            <h1 className="text-4xl md:text-6xl font-light mb-6 tracking-tight">
-              À Propos de Nous
-            </h1>
-            <p className="text-xl md:text-2xl font-light max-w-3xl mx-auto opacity-90">
-              Votre partenaire de confiance pour la transformation numérique
+            <p className="eyebrow mb-4">À propos</p>
+            <h1 className="section-heading mb-4">Une équipe orientée impact et qualité produit</h1>
+            <p className="text-lg text-gray-500">
+              Nous accompagnons les entreprises de l’idée au déploiement avec une vision long terme.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Notre Histoire */}
-      <section className="py-20 bg-gray-900">
-        <div className="max-w-4xl mx-auto px-8">
-          <motion.div 
-            className="bg-gray-800 border border-gray-700 rounded-2xl p-8"
+      <section className="pb-16 md:pb-20">
+        <div className="container-page grid lg:grid-cols-2 gap-6">
+          <motion.div
+            className="bento-card p-7"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.55 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-light text-white mb-6">Notre Histoire</h2>
-            <p className="text-gray-300 leading-relaxed text-lg">
-              Embolo Technologies a été fondée avec une vision claire : fournir des solutions 
-              numériques innovantes et sur mesure pour aider les entreprises à prospérer dans 
-              l'ère numérique. Depuis notre création, nous nous sommes engagés à délivrer 
-              l'excellence technique et un service client exceptionnel.
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Notre histoire</h2>
+            <p className="text-gray-500 leading-relaxed">
+              Embolo Technologies est née d’une conviction simple : construire des solutions digitales
+              utiles, rapides et fiables. Nous avons structuré une méthode claire qui sécurise la livraison
+              et accélère la croissance de nos clients.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="bento-card p-7 bg-gray-900 text-white"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.55, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-2xl font-semibold mb-4">Notre mission</h2>
+            <p className="text-gray-300 leading-relaxed">
+              Créer des produits digitaux performants qui simplifient les opérations et augmentent
+              les résultats business, tout en gardant une relation client transparente.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="py-20 bg-gray-800">
-        <div className="max-w-6xl mx-auto px-8">
-          <div className="grid md:grid-cols-2 gap-12">
-            <motion.div 
-              className="bg-gray-900 border border-gray-600 rounded-2xl p-6"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-2xl font-light text-white mb-4">Notre Mission</h2>
-              <p className="text-gray-300 leading-relaxed">
-                Accompagner les entreprises dans leur transformation numérique en leur fournissant 
-                des solutions technologiques innovantes, performantes et adaptées à leurs besoins spécifiques.
-              </p>
-            </motion.div>
-
-            <motion.div 
-              className="bg-gray-900 border border-gray-600 rounded-2xl p-6"
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-2xl font-light text-white mb-4">Notre Vision</h2>
-              <p className="text-gray-300 leading-relaxed">
-                Devenir le partenaire technologique de référence pour les entreprises souhaitant 
-                innover et se démarquer grâce au numérique, en alliant expertise technique et 
-                approche humaine.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Nos Valeurs */}
-      <section className="py-20 bg-gray-900">
-        <div className="max-w-6xl mx-auto px-8">
-          <motion.div 
-            className="text-center mb-16"
+      <section className="py-16 md:py-20 bg-surface-50">
+        <div className="container-page">
+          <motion.div
+            className="max-w-3xl mb-10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.55 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-light text-white mb-6">Nos Valeurs</h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Les principes qui guident notre travail au quotidien
-            </p>
+            <p className="eyebrow mb-3">Parcours</p>
+            <h2 className="section-heading mb-3">Notre évolution</h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { title: "Innovation", description: "Nous restons à la pointe de la technologie pour offrir les meilleures solutions", icon: "💡" },
-              { title: "Excellence", description: "Nous visons l'excellence dans chaque projet que nous entreprenons", icon: "⭐" },
-              { title: "Intégrité", description: "Nous maintenons les plus hauts standards d'éthique professionnelle", icon: "🤝" },
-              { title: "Collaboration", description: "Nous travaillons en étroite collaboration avec nos clients pour leur réussite", icon: "👥" }
-            ].map((value, index) => (
-              <motion.div 
-                key={index}
-                className="bg-gray-800 border border-gray-700 rounded-2xl p-4 text-center hover:border-primary-600 transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
+          <div className="space-y-4">
+            {milestones.map((milestone, index) => (
+              <motion.div
+                key={milestone.year}
+                className="bento-card p-5 flex items-start gap-4"
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.45, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="text-4xl mb-4">{value.icon}</div>
-                <h3 className="text-xl font-semibold text-white mb-3">{value.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{value.description}</p>
+                <span className="text-xs font-bold text-primary-600 tracking-widest pt-1">{milestone.year}</span>
+                <p className="text-gray-600">{milestone.text}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Notre Équipe */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-primary-900">
-        <div className="max-w-4xl mx-auto px-8 text-center">
+      <section className="py-16 md:py-20">
+        <div className="container-page">
           <motion.div
+            className="max-w-3xl mb-10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.55 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-light text-white mb-6">Notre Équipe</h2>
-            <p className="text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
-              Notre équipe est composée d'experts passionnés par la technologie et 
-              déterminés à créer des solutions qui font la différence. Avec des années 
-              d'expérience dans le développement web et mobile, nous sommes prêts à 
-              relever tous les défis techniques.
-            </p>
+            <p className="eyebrow mb-3">Nos valeurs</p>
+            <h2 className="section-heading mb-3">Ce qui guide chacune de nos décisions</h2>
           </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {values.map((value, index) => (
+              <motion.article
+                key={value.title}
+                className="bento-card p-5"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5 }}
+              >
+                <span className="text-[10px] uppercase tracking-widest font-semibold text-primary-600">Value</span>
+                <h3 className="text-lg font-semibold text-gray-900 mt-2 mb-2">{value.title}</h3>
+                <p className="text-sm text-gray-500">{value.description}</p>
+              </motion.article>
+            ))}
+          </div>
         </div>
       </section>
     </div>

@@ -1,129 +1,144 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
+
+const services = [
+  {
+    title: 'Développement Web',
+    description: 'Sites vitrines, e-commerce et plateformes métiers pensées pour convertir et évoluer.',
+    features: ['Architecture scalable', 'SEO technique', 'Optimisation performance', 'Back-office personnalisé'],
+  },
+  {
+    title: 'Développement Mobile',
+    description: 'Applications mobiles fluides et robustes pour iOS et Android.',
+    features: ['UX mobile-first', 'API sécurisée', 'Notifications push', 'Publication stores'],
+  },
+  {
+    title: 'Maintenance & Support',
+    description: 'Monitoring, corrections, évolutions et assistance continue pour vos produits.',
+    features: ['Mises à jour régulières', 'Support réactif', 'Corrections critiques', 'Suivi qualité'],
+  },
+  {
+    title: 'Audit & Conseil',
+    description: 'Audit technique complet pour fiabiliser, sécuriser et accélérer vos solutions.',
+    features: ['Audit code', 'Audit sécurité', 'Plan d’amélioration', 'Roadmap actionnable'],
+  },
+]
+
+const processSteps = [
+  { number: '01', title: 'Découverte', text: 'Nous cadrons vos objectifs business et techniques.' },
+  { number: '02', title: 'Conception', text: 'Nous définissons les écrans, l’architecture et les priorités.' },
+  { number: '03', title: 'Livraison', text: 'Nous livrons, testons et accompagnons la montée en charge.' },
+]
+
+const fadeUp = {
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.55 },
+}
 
 const Services = () => {
-  const services = [
-    {
-      title: "Développement Web",
-      description: "Création de sites web et applications web sur mesure, responsive et optimisés pour les performances.",
-      features: [
-        "Sites vitrines et corporate",
-        "Applications web complexes",
-        "E-commerce",
-        "Interfaces administrateur",
-        "API RESTful"
-      ],
-      icon: "🌐"
-    },
-    {
-      title: "Développement Mobile",
-      description: "Applications mobiles natives et cross-platform pour iOS et Android.",
-      features: [
-        "Applications natives iOS",
-        "Applications natives Android",
-        "Solutions cross-platform",
-        "Applications PWA",
-        "Maintenance et mises à jour"
-      ],
-      icon: "📱"
-    },
-    {
-      title: "Maintenance",
-      description: "Services de maintenance et support technique pour garantir la pérennité de vos solutions.",
-      features: [
-        "Maintenance préventive",
-        "Maintenance corrective",
-        "Mises à jour de sécurité",
-        "Optimisation des performances",
-        "Support technique"
-      ],
-      icon: "🔧"
-    },
-    {
-      title: "Audit",
-      description: "Analyse approfondie de vos solutions numériques pour identifier les axes d'amélioration.",
-      features: [
-        "Audit de performance",
-        "Audit de sécurité",
-        "Audit d'accessibilité",
-        "Audit SEO",
-        "Recommandations détaillées"
-      ],
-      icon: "📊"
-    }
-  ]
-
   return (
-    <div className="w-full min-h-screen bg-gray-900">
-      {/* Header Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-gray-900 via-gray-800 to-primary-900">
-        <div className="max-w-6xl mx-auto px-8">
-          <motion.div 
-            className="text-center text-white"
-            initial={{ opacity: 0, y: 30 }}
+    <div className="w-full bg-white">
+      <section className="pt-28 pb-16 md:pt-32 md:pb-20">
+        <div className="container-page">
+          <motion.div
+            className="text-center max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.65 }}
           >
-            <h1 className="text-4xl md:text-6xl font-light mb-6 tracking-tight">
-              Nos Services
-            </h1>
-            <p className="text-xl md:text-2xl font-light max-w-3xl mx-auto opacity-90">
-              Des solutions sur mesure pour répondre à vos besoins numériques
+            <p className="eyebrow mb-4">Nos services</p>
+            <h1 className="section-heading mb-4">Tout ce qu’il faut pour créer votre produit digital</h1>
+            <p className="text-lg text-gray-500">
+              Nous combinons design, développement et stratégie pour livrer des solutions performantes.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-20 bg-gray-900">
-        <div className="max-w-6xl mx-auto px-8">
-          <div className="grid md:grid-cols-2 gap-8">
-            {services.map((service, index) => (
-              <motion.div 
-                key={index}
-                className="bg-gray-800 border border-gray-700 rounded-2xl p-6 hover:border-primary-600 transition-all duration-300 hover:-translate-y-2"
-                initial={{ opacity: 0, y: 20 }}
+      <section className="pb-16 md:pb-20">
+        <div className="container-page grid md:grid-cols-2 gap-5 md:gap-6">
+          {services.map((service, index) => (
+            <motion.article
+              key={service.title}
+              className="bento-card p-6 md:p-7 group hover:shadow-card-hover transition-all duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -6 }}
+            >
+              <div className="w-11 h-11 rounded-2xl bg-primary-600 text-white flex items-center justify-center mb-4">
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h2 className="text-xl font-semibold text-gray-900 mb-3">{service.title}</h2>
+              <p className="text-gray-500 leading-relaxed mb-5">{service.description}</p>
+              <ul className="space-y-2">
+                {service.features.map((feature) => (
+                  <li key={feature} className="text-sm text-gray-600 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary-600" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </motion.article>
+          ))}
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20 bg-surface-50">
+        <div className="container-page">
+          <motion.div {...fadeUp} className="max-w-3xl mb-10">
+            <p className="eyebrow mb-3">Méthodologie</p>
+            <h2 className="section-heading mb-3">Un process clair, rapide et transparent</h2>
+            <p className="text-lg text-gray-500">
+              Chaque étape est visible et validée avec vous pour garantir un résultat solide.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-4">
+            {processSteps.map((step, index) => (
+              <motion.div
+                key={step.number}
+                className="bento-card p-6"
+                initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.45, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="text-3xl mb-4">{service.icon}</div>
-                <h2 className="text-xl font-semibold text-white mb-3">{service.title}</h2>
-                <p className="text-gray-300 mb-4 leading-relaxed">{service.description}</p>
-                <ul className="space-y-3">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-gray-400">
-                      <span className="text-primary-600 mr-3">✓</span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+                <span className="text-xs font-bold text-primary-600 tracking-widest">{step.number}</span>
+                <h3 className="text-lg font-semibold text-gray-900 mt-3 mb-2">{step.title}</h3>
+                <p className="text-gray-500">{step.text}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-primary-900">
-        <div className="max-w-4xl mx-auto px-8 text-center">
+      <section className="py-16 md:py-20">
+        <div className="container-page">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            className="rounded-4xl bg-gray-900 text-white p-8 md:p-12 text-center"
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-light text-white mb-6">
-              Besoin d'un service personnalisé ?
-            </h2>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Contactez-nous pour discuter de votre projet et découvrir comment nous pouvons vous aider
+            <h2 className="text-3xl md:text-4xl font-semibold mb-4">Un besoin précis ? On vous accompagne</h2>
+            <p className="text-gray-300 max-w-2xl mx-auto mb-8">
+              Discutons de votre projet et construisons une solution qui répond à vos objectifs.
             </p>
-            <a 
-              href="/contact" 
-              className="inline-block bg-white text-primary-600 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors duration-300"
-            >
-              Nous contacter
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/contact" className="btn-primary">
+                Parler à un expert
+              </Link>
+              <Link to="/portfolio" className="btn-ghost !text-white !border-gray-500 hover:!border-white">
+                Voir des cas clients
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -131,4 +146,4 @@ const Services = () => {
   )
 }
 
-export default Services 
+export default Services

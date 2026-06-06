@@ -30,7 +30,7 @@
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow-x: hidden;
   }
 
   ::-webkit-scrollbar {
@@ -103,6 +103,34 @@
 
   .border-dark {
     @apply border-gray-700;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 hover:bg-primary-700 hover:-translate-y-0.5 hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 hover:bg-black hover:-translate-y-0.5;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 bg-transparent border border-gray-300 text-gray-900 px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 hover:border-gray-900 hover:-translate-y-0.5;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold tracking-[0.2em] uppercase text-gray-400;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-900 tracking-tight leading-tight;
+  }
+
+  .bento-card {
+    @apply bg-white rounded-3xl shadow-bento border border-gray-100 overflow-hidden;
+  }
+
+  .container-page {
+    @apply w-full max-w-[1320px] mx-auto px-5 sm:px-6 lg:px-8;
   }
 }
 

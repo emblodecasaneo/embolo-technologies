@@ -39,8 +39,8 @@ const Contact = () => {
           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
         </svg>
       ),
-      title: "Horaires",
-      value: "Lun - Ven: 9h - 18h",
+      title: 'Horaires',
+      value: 'Lun - Ven: 9h - 18h',
       description: "Nos heures de disponibilité"
     }
   ]
@@ -101,121 +101,109 @@ const Contact = () => {
   ]
 
   return (
-    <div className="w-full min-h-screen bg-gray-900">
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-gray-900 via-gray-800 to-primary-900">
-        <div className="max-w-6xl mx-auto px-8">
-          <motion.div 
-            className="text-center text-white"
-            initial={{ opacity: 0, y: 30 }}
+    <div className="w-full bg-white">
+      <section className="pt-28 pb-16 md:pt-32 md:pb-20">
+        <div className="container-page">
+          <motion.div
+            className="text-center max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.65 }}
           >
-            <h1 className="text-4xl md:text-6xl font-light mb-6 tracking-tight">
-              Contactez-nous
-            </h1>
-            <p className="text-xl md:text-2xl font-light max-w-3xl mx-auto opacity-90">
-              Transformons vos idées en réalité numérique
+            <p className="eyebrow mb-4">Contact</p>
+            <h1 className="section-heading mb-4">Parlons de votre prochain projet web</h1>
+            <p className="text-lg text-gray-500">
+              Dites-nous ce que vous voulez construire, nous revenons vers vous rapidement.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Contact Info Cards */}
-      <section className="py-20 bg-gray-900">
-        <div className="max-w-6xl mx-auto px-8">
-          <motion.div 
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20"
-            initial={{ opacity: 0, y: 20 }}
+      <section className="pb-16 md:pb-20">
+        <div className="container-page grid lg:grid-cols-5 gap-6">
+          <motion.div
+            className="lg:col-span-3 bento-card p-6 md:p-8"
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Envoyez-nous un message</h2>
+            <form className="grid sm:grid-cols-2 gap-4">
+              <input className="bg-surface-50 border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary-600" placeholder="Nom complet" />
+              <input className="bg-surface-50 border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary-600" placeholder="Entreprise" />
+              <input className="sm:col-span-2 bg-surface-50 border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary-600" placeholder="Email" />
+              <input className="sm:col-span-2 bg-surface-50 border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary-600" placeholder="Sujet" />
+              <textarea rows="5" className="sm:col-span-2 bg-surface-50 border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary-600 resize-none" placeholder="Parlez-nous de votre besoin..." />
+              <button type="button" className="sm:col-span-2 btn-primary w-full sm:w-fit">
+                Envoyer la demande
+              </button>
+            </form>
+          </motion.div>
+
+          <motion.div
+            className="lg:col-span-2 space-y-4"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.08 }}
             viewport={{ once: true }}
           >
             {contactInfo.map((info, index) => (
-              <motion.div 
-                key={index}
-                className="bg-gray-800 border border-gray-700 rounded-2xl p-6 text-center hover:border-primary-600 transition-all duration-300 hover:-translate-y-2"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+              <motion.div
+                key={info.title}
+                className="bento-card p-5"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.45, delay: index * 0.08 }}
                 viewport={{ once: true }}
+                whileHover={{ y: -4 }}
               >
-                <div className="text-primary-600 mb-6 flex justify-center">
-                  {info.icon}
+                <div className="w-10 h-10 rounded-xl bg-primary-600 text-white flex items-center justify-center mb-3">
+                  <span className="scale-75">{info.icon}</span>
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3">{info.title}</h3>
-                <p className="text-white font-medium mb-2">{info.value}</p>
-                <p className="text-gray-400 text-sm">{info.description}</p>
+                <h3 className="text-sm font-semibold text-gray-900 mb-1">{info.title}</h3>
+                <p className="text-sm text-gray-700 mb-1">{info.value}</p>
+                <p className="text-xs text-gray-500">{info.description}</p>
               </motion.div>
             ))}
-          </motion.div>
-
-          {/* Social Links Section */}
-          <motion.div 
-            className="text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl font-light text-white mb-4">Suivez-nous</h2>
-            <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-              Restez connectés avec Embolo Technologies sur nos réseaux sociaux pour nos dernières actualités et projets
-            </p>
-            
-            <div className="flex justify-center gap-6 flex-wrap">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={index}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`bg-gray-800 border border-gray-700 p-4 rounded-xl text-gray-400 transition-all duration-300 hover:scale-110 hover:border-primary-600 ${social.color}`}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -5 }}
-                >
-                  {social.icon}
-                  <span className="sr-only">{social.name}</span>
-                </motion.a>
-              ))}
-            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-primary-900">
-        <div className="max-w-4xl mx-auto px-8 text-center">
+      <section className="py-16 md:py-20 bg-surface-50">
+        <div className="container-page">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            className="text-center max-w-3xl mx-auto mb-8"
+            initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-light text-white mb-6">
-              Prêt à collaborer ?
-            </h2>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Contactez-nous dès aujourd'hui pour discuter de votre projet et découvrir comment nous pouvons vous aider à atteindre vos objectifs numériques
+            <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-3">Suivez-nous</h2>
+            <p className="text-gray-500">
+              Découvrez nos projets récents et nos actualités sur les réseaux.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="mailto:contact@embolo-tech.com" 
-                className="bg-primary-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-primary-700 transition-all duration-300 transform hover:-translate-y-1"
-              >
-                Envoyer un email
-              </a>
-              <a 
-                href="tel:+33XXXXXXX" 
-                className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-primary-600 transition-all duration-300 transform hover:-translate-y-1"
-              >
-                Nous appeler
-              </a>
-            </div>
           </motion.div>
+
+          <div className="flex justify-center gap-4 flex-wrap">
+            {socialLinks.map((social, index) => (
+              <motion.a
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`bento-card p-4 text-gray-500 hover:text-primary-600 ${social.color}`}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: index * 0.06 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5 }}
+              >
+                {social.icon}
+                <span className="sr-only">{social.name}</span>
+              </motion.a>
+            ))}
+          </div>
         </div>
       </section>
     </div>
